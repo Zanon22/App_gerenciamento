@@ -1,0 +1,38 @@
+<ReceitasPage>:
+    FloatLayout:
+        canvas:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: "icones/bg1.png"
+
+        #botão de voltar
+        FloatLayout:
+            pos_hint: {"right": 1, "top": 0.12}
+            size_hint: 1, 0.12
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#006D7E")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        # 3 botões da Receitaspage
+        GridLayout:
+            rows: 1
+            pos_hint: {"right": 1, "top": 0.12}
+            size_hint: 1, 0.12
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#006D7E")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            ImageButton:
+                source: "icones/add.png"
+                on_release: app.mudar_tela("prereceitapage")
+            ImageButton:
+                source: "icones/preparo.png"
+                on_release: app.mudar_tela("produzirpage")
+            ImageButton:
+                source: "icones/voltar.png"
+                on_release: app.mudar_tela("homepage")

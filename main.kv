@@ -1,0 +1,66 @@
+#:include kv/homepage.kv
+#:include kv/loginpage.kv
+#:include kv/compras.kv
+#:include kv/receitas.kv
+#:include kv/addfornecedor.kv
+#:include kv/gerenciarestoque.kv
+#:include kv/addreceitas.kv
+#:include kv/addcompra.kv
+#:include kv/addproduto.kv
+#:include kv/precompra.kv
+#:include kv/prereceita.kv
+#:include kv/produzir.kv
+#:import utils kivy.utils
+
+FloatLayout:
+    canvas:
+        Color:
+            rgb: utils.get_color_from_hex("#001824")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Image:
+        pos_hint: {"right": 1, "top": 1.05}
+        size_hint: 1, 0.4
+        source: "icones/logo_app.png"
+        id: foto_perfil
+    ScreenManager:
+        pos_hint: {"right": 1, "top": 0.7}
+        size_hint: 1, 0.7
+        id: screen_manager
+        #LoginPage:
+            #name: "loginpage"
+            #id: loginpage
+        HomePage:
+            name: "homepage"
+            id: homepage
+        ComprasPage:
+            name: "compraspage"
+            id: compraspage
+        ReceitasPage:
+            name: "receitaspage"
+            id: receitaspage
+        GerenciarestoquePage:
+            name: "gerenciarestoquepage"
+            id: gerenciarestoquepage
+        AddfornecedorPage:
+            name: "addfornecedorpage"
+            id: addfornecedorpage
+        AddreceitasPage:
+            name: "addreceitaspage"
+            id: addreceitaspage
+        AddprodutoPage:
+            name: "addprodutopage"
+            id: addprodutopage
+        AddcompraPage:
+            name: "addcomprapage"
+            id: addcomprapage
+        PrecompraPage:
+            name: "precomprapage"
+            id: precomprapage
+        PrereceitaPage:
+            name: "prereceitapage"
+            id: prereceitapage
+        ProduzirPage:
+            name: "produzirpage"
+            id: produzirpage

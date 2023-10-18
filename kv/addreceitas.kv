@@ -1,0 +1,77 @@
+<AddreceitasPage>:
+    FloatLayout:
+        canvas:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: "icones/bg1.png"
+
+        #perguntas
+        ScrollView:
+            pos_hint: {"right": 1, "top": 0.9}
+            size_hint: 1, 0.63
+            GridLayout:
+                rows : 5
+                size_hint_y: None
+                spacing: 0, 2
+                height: self.minimum_height
+                row_default_height: "90dp"
+                row_force_default: True
+                id: scroll
+        #Produto
+                Label:
+                    text: 'Produto'
+                    id: produto_label
+                Spinner:
+                    id: produto
+                    text_size: 100, 50
+                    valign: 'center'
+                    text: 'Selecione...'
+                    values:
+        #explicação
+                Label:
+                    text: '0,1 de 1000 = 100 /'
+                Label:
+                    text: '/ 0,5 de 1000 = 500'
+                Label:
+                    text: '0,2 de 500 = 100 /'
+                Label:
+                    text: '/ 0,4 de 500 = 200'
+        #Quantidade
+                Label:
+                    text: "Quantidade:"
+                    id: quantidade_label
+                TextInput:
+                    id: quantidade
+                    hint_text: "Digite apenas números"
+
+        #botões
+        FloatLayout:
+            pos_hint: {"right": 1, "top": 0.12}
+            size_hint: 1, 0.12
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#006D7E")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        LabelButton:
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: "icones/botao.png" if self.state == "normal" else "icones/botao_apertado.png"
+            on_release: app.criar_receita(), app.mudar_tela("receitaspage")
+            text: "Só mais esse"
+            pos_hint: {"right": 0.45, "top": 0.2}
+            size_hint: 0.4, 0.2
+        LabelButton:
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: "icones/botao.png" if self.state == "normal" else "icones/botao_apertado.png"
+            on_release: app.criar_receita()
+            text: "Esse e mais 1"
+            pos_hint: {"right": 0.95, "top": 0.2}
+            size_hint: 0.4, 0.2
